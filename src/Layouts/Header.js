@@ -23,21 +23,30 @@ class Header extends Component {
           </h1>
         </div>
 
-        <div className="app-menu-btn" onClick={this.handleClick}>
+        <div
+          className={!this.state.menu ? "app-menu-btn" : "app-menu-btn open"}
+          onClick={this.handleClick}
+        >
           <div />
         </div>
         <nav
-          className={this.state.menu ? "app-nav-items show" : "app-nav-items"}
+          className={!this.state.menu ? "app-nav-items" : "app-nav-items show"}
         >
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/" onClick={this.handleClick}>
+                Home
+              </Link>
             </li>
             <li>
-              <Link to="/menu">Menu</Link>
+              <Link to="/menu" onClick={this.handleClick}>
+                Menu
+              </Link>
             </li>
             <li>
-              <Link to="/order">Order</Link>
+              <Link to="/order" onClick={this.handleClick}>
+                Order
+              </Link>
             </li>
           </ul>
         </nav>

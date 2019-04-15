@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./Layouts/Header";
 import Home from "./Components/home/Home";
+import Menu from "./Components/menu/Menu";
 import "./App.scss";
 
 class App extends Component {
@@ -10,7 +11,10 @@ class App extends Component {
       <Router>
         <div className="App">
           <Header />
-          <Route excat path="/" component={Home} />
+          <Switch>
+            <Route exact path="/" component={Home} />
+            <Route path="/menu" component={Menu} />
+          </Switch>
         </div>
       </Router>
     );
