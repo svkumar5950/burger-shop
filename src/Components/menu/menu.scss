@@ -32,6 +32,34 @@
   }
 }
 
+// Media Query for Mobile Phones
+
+@include mq(600px) {
+  .app-menu {
+    flex-direction: column;
+    .app-menu-nav {
+      height: 10vh;
+      ul {
+        display: flex;
+        justify-content: space-around;
+        li {
+          margin-top: 2vh;
+        }
+      }
+    }
+  }
+}
+
+// Media query for Tablets
+
+@include mq(1000px) {
+  .app-menu {
+    .app-menu-nav {
+      flex-basis: 20%;
+    }
+  }
+}
+
 // Nav - menu - Burgers - Drinks - Chips - Kids
 .menu-burger,
 .menu-drinks,
@@ -70,7 +98,8 @@
 // Nav - Menu - Drinks
 .menu-drinks {
   .drinks-items {
-    flex-basis: 20%;
+    flex-basis: 25%;
+    margin-left: 2vw;
   }
 }
 // Nav - Menu - Chips
@@ -79,5 +108,39 @@
   .chips-items,
   .kids-items {
     flex-basis: 40%;
+  }
+}
+
+// Media Query for tablets
+
+@include mq(900px) {
+  .app-menu {
+    .burger-items {
+      flex-basis: 45%;
+    }
+    .drinks-items {
+      flex-basis: 45%;
+    }
+    .chips-items,
+    .kids-items {
+      flex-basis: 90%;
+    }
+  }
+}
+
+// Media query for mobile Phones
+
+@include mq(500px) {
+  .app-menu {
+    .burger-items {
+      flex-basis: 90%;
+    }
+    .drinks-items {
+      flex-basis: 45%;
+    }
+    .chips-items,
+    .kids-items {
+      flex-basis: 90%;
+    }
   }
 }
