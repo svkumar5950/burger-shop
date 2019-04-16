@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { CSSTransition } from "react-transition-group";
 import Burgers from "./Burgers";
 import Drinks from "./Drinks";
 import Chips from "./Chips";
@@ -53,30 +54,37 @@ export default class Menu extends Component {
   render() {
     const path = this.props.location.pathname;
     return (
-      <div className="app-menu">
-        <div className="app-menu-nav">
-          <ul>
-            <li className={path === "/menu" ? "active" : ""}>
-              <Link to="/menu">Burgers</Link>
-            </li>
-            <li className={path === "/menu/drinks" ? "active" : ""}>
-              <Link to="/menu/drinks">Drinks</Link>
-            </li>
-            <li className={path === "/menu/chips" ? "active" : ""}>
-              <Link to="/menu/chips">Chip's</Link>
-            </li>
-            <li className={path === "/menu/kids" ? "active" : ""}>
-              <Link to="/menu/kids">Kid's</Link>
-            </li>
-          </ul>
+      <CSSTransition
+        in={true}
+        appear={true}
+        timeout={500}
+        classNames="menu-page"
+      >
+        <div className="app-menu">
+          <div className="app-menu-nav">
+            <ul>
+              <li className={path === "/menu" ? "active" : ""}>
+                <Link to="/menu">Burgers</Link>
+              </li>
+              <li className={path === "/menu/drinks" ? "active" : ""}>
+                <Link to="/menu/drinks">Drinks</Link>
+              </li>
+              <li className={path === "/menu/chips" ? "active" : ""}>
+                <Link to="/menu/chips">Chip's</Link>
+              </li>
+              <li className={path === "/menu/kids" ? "active" : ""}>
+                <Link to="/menu/kids">Kid's</Link>
+              </li>
+            </ul>
+          </div>
+          <div className="menu-content">
+            {path === "/menu" && <Burgers burgers={this.state.burgers} />}
+            {path === "/menu/drinks" && <Drinks drinks={this.state.drinks} />}
+            {path === "/menu/chips" && <Chips chips={this.state.chips} />}
+            {path === "/menu/kids" && <Kids kids={this.state.kids} />}
+          </div>
         </div>
-        <div className="menu-content">
-          {path === "/menu" && <Burgers burgers={this.state.burgers} />}
-          {path === "/menu/drinks" && <Drinks drinks={this.state.drinks} />}
-          {path === "/menu/chips" && <Chips chips={this.state.chips} />}
-          {path === "/menu/kids" && <Kids kids={this.state.kids} />}
-        </div>
-      </div>
+      </CSSTransition>
     );
   }
 }

@@ -237,3 +237,83 @@ body {
 // For Menu Component
 
 @import "./Components/menu/menu.scss";
+
+// App - Order Component
+
+.App {
+  .app-order {
+    img {
+      max-width: 100%;
+      width: 100%;
+      height: 70vh;
+      object-fit: cover;
+      object-position: 1px 25%;
+      opacity: 0.8;
+    }
+
+    h1 {
+      text-align: center;
+      flex-basis: 100%;
+      color: $main-color;
+      font-family: $font-header;
+    }
+    .order-content {
+      display: flex;
+      div {
+        flex-basis: 45%;
+        text-align: center;
+        h2 {
+          i {
+            margin-right: 1vw;
+          }
+          color: $accent-color;
+          font-family: $font-text;
+        }
+      }
+    }
+  }
+}
+
+// Media query for APP - Order Component
+@include mq(900px) {
+  .App {
+    .app-order {
+      img {
+        height: 40vh;
+      }
+    }
+  }
+}
+@include mq(500px) {
+  .App {
+    .app-order {
+      img {
+        height: 30vh;
+      }
+      .order-content {
+        flex-wrap: wrap;
+        div {
+          flex-basis: 90%;
+        }
+      }
+    }
+  }
+}
+// APP animations
+.App {
+  .home-page,
+  .menu-page,
+  .about-page,
+  .menu-burger,
+  .menu-chips,
+  .menu-drinks,
+  .menu-kids {
+    &-appear {
+      transform: scale(0, 0.8);
+    }
+    &-appear-active {
+      transform: scale(1);
+      transition: transform 400ms ease-in-out;
+    }
+  }
+}
